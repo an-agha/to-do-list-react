@@ -3,9 +3,13 @@ import Form from "./components/Form"
 import ToDoItem from "./components/ToDoItem"
 import style from "./styles/app.module.css"
 
+interface ToDo {
+  id: string
+  value: string
+}
 
 function App() {
-  const [toDos, setToDos] = useState([])
+  const [toDos, setToDos] = useState<ToDo[]>([])
 
   const handleSubmit = (text : string) => {
     console.log(text)

@@ -8,6 +8,7 @@ interface Props {
 function Form({onSubmit}: Props) {
     const [item, setItem] = useState("")
     const submit = () => {
+      if(!item) return alert("Please Enter To Do")
       onSubmit(item)
       setItem("")
     }
