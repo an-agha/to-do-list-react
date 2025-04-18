@@ -1,10 +1,13 @@
 import "../styles/to-do-item.css"
 
-function ToDoItem() {
+interface Props {
+  item: string
+}
+function ToDoItem({item}: Props) {
   return (
     <li>
-        <input type="checkbox" name="" id="" />
-        <span></span>
+        <input type="checkbox"/>
+        <span>{item}</span>
         <button>
             Delete
         </button>
