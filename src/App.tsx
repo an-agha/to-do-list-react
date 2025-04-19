@@ -25,6 +25,12 @@ function App() {
     })
   }
 
+  const handleDelete = (id: ToDo["id"]) => {
+    setToDos(oldToDos => {
+      return oldToDos.filter(i=> i.id !== id )
+    })
+  }
+
   return (
     <div className={style.container}>
       <span className={style.heading}>
@@ -33,9 +39,10 @@ function App() {
       <Form onSubmit={handleSubmit}/>
       <ul className={style.listContainer}>
         {toDos.map(({id,value}) => (
-          <ToDoItem 
+          <ToDoItem
             key={id}
-            item={value}/>
+            item={value}
+            onDelete={()=> handleDelete(id)} />
         ))}
       </ul>
     </div>

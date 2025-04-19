@@ -1,13 +1,12 @@
+import { MouseEventHandler } from "react"
 import style from "../styles/to-do-item.module.css"
 
 interface Props {
   item: string
+  onDelete: MouseEventHandler
 }
-function ToDoItem({item}: Props) {
+function ToDoItem({item, onDelete}: Props) {
 
-  const deleteItem = () => {
-
-  }
 
   return (
     <li className={style.listItem}>
@@ -16,7 +15,7 @@ function ToDoItem({item}: Props) {
           <span className={style.item}>{item}</span>
           <button 
             className={style.dltBtn}
-            onClick={deleteItem}>
+            onClick={onDelete}>
             Delete
           </button>
         </div>
