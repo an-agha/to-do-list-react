@@ -6,6 +6,7 @@ import style from "./styles/app.module.css"
 interface ToDo {
   id: string
   value: string
+  isDone: boolean
 }
 
 function App() {
@@ -13,9 +14,10 @@ function App() {
 
   const handleSubmit = (text : string) => {
     console.log(text)
-    const newToDo = {
+    const newToDo: ToDo = {
       id: crypto.randomUUID(),
       value: text,
+      isDone: false,
     }
     setToDos((oldToDo)=>{
       return [
@@ -29,6 +31,20 @@ function App() {
     setToDos(oldToDos => {
       return oldToDos.filter(i=> i.id !== id )
     })
+  } 
+
+  const handleToggle = (id: ToDo["id"], value : boolean) => {
+    setToDos(oldToDos => {
+      return oldToDos.map(toDo =>{
+        if(toDo.id === id){
+          return {
+            ...toDo,
+            isDone: value
+          }
+        }
+        return toDo
+      })
+    })
   }
 
   return (
@@ -38,10 +54,12 @@ function App() {
       </span>
       <Form onSubmit={handleSubmit}/>
       <ul className={style.listContainer}>
-        {toDos.map(({id,value}) => (
+        {toDos.map(({id,value,isDone}) => (
           <ToDoItem
             key={id}
             item={value}
+            isCompleted={isDone}
+            onToggle={(value: boolean) => handleToggle(id, value)}
             onDelete={()=> handleDelete(id)} />
         ))}
       </ul>

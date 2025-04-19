@@ -3,14 +3,20 @@ import style from "../styles/to-do-item.module.css"
 
 interface Props {
   item: string
+  isCompleted: boolean
+  onToggle: Function
   onDelete: MouseEventHandler
 }
-function ToDoItem({item, onDelete}: Props) {
+function ToDoItem({item,isCompleted,onToggle,onDelete}: Props) {
+  console.log(isCompleted)
 
 
   return (
-    <li className={style.listItem}>
-        <input type="checkbox"/>
+    <li className={`${style.listItem} ${isCompleted ? style.done : ""}`}>
+        <input 
+          type="checkbox" 
+          checked={isCompleted} 
+          onChange={({target}) =>onToggle(target.checked)} />
         <div className={style.listContent}>
           <span className={style.item}>{item}</span>
           <button 
