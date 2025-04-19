@@ -1,0 +1,28 @@
+.container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: 10px;
+}
+.input {
+    width: 90%;
+    max-width: 400px;
+    height: 40px;
+    border-radius: 8px;
+    border: 1px solid #15F5BA;
+    background-color: #0c0808;
+    color: white;
+    padding: 0 10px;
+    letter-spacing: 2px;
+}
+.submitBtn {
+    height: 40px;
+    padding: 0 20px;
+    border-radius: 8px;
+    border: none;
+    font-size: 14px;
+    background-color: #15F5BA;
+    color: #211951;
+    font-weight: 600;
+}

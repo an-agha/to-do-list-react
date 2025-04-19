@@ -1,5 +1,5 @@
 import { useState } from "react"
-import "../styles/form.css"
+import style from "../styles/form.module.css"
 
 interface Props {
   onSubmit : Function
@@ -13,12 +13,18 @@ function Form({onSubmit}: Props) {
       setItem("")
     }
   return (
-    <div className="container">
+    <div className={style.container}>
         <input 
           type="text" 
+           placeholder="Enter To Do"
           value={item} 
-          onChange={({target}) => setItem(target.value)} />
-        <button onClick={submit}>Add Item</button>
+          onChange={({target}) => setItem(target.value)} 
+          className={style.input} />
+        <button 
+          onClick={submit}
+          className={style.submitBtn}>
+          Add Item
+        </button>
     </div>
   )
 }

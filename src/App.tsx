@@ -19,7 +19,7 @@ function App() {
     }
     setToDos((oldToDo)=>{
       return [
-        ...oldToDo,
+        ...oldToDo, 
         newToDo
       ]
     })
@@ -27,8 +27,11 @@ function App() {
 
   return (
     <div className={style.container}>
+      <span className={style.heading}>
+        Just The Essentials
+      </span>
       <Form onSubmit={handleSubmit}/>
-      <ul>
+      <ul className={style.listContainer}>
         {toDos.map(({id,value}) => (
           <ToDoItem 
             key={id}

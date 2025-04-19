@@ -1,0 +1,30 @@
+.listItem {
+    width: 90%;
+    max-width: 500px;
+    height: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    column-gap: 10px;
+    border-bottom: 1px solid #15f5b9c1;
+    color: white;
+}
+.listContent {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.item {
+    color: #FFF;
+    font-size: 14px;
+    letter-spacing: 1px;
+}
+.dltBtn {
+    padding: 5px 15px;
+    border: none;
+    border-radius: 4px;
+    background-color: #FF204E;
+    color: white;
+    font-weight: 500;
+}
